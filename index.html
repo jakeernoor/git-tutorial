@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/93d8693470.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+</head>
+<body>
+    
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white mb-2 sticky fixed-top">
+            <a class="navbar-brand navbar-heading" href="#employeeOnboard">Employee Onboard</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ml-auto">
+
+                    <a class="nav-link" href="#employeeOnboard">Employee Onboard details <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#managerLogin">Manager Login</a>
+                    <a class="nav-link" href="#aboutUs">About us</a>
+                    <a class="nav-link" href="#privacyFiles">Files</a>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <div class="container d-flex flex-row justify-content-center">
+            <div class="row">
+                <div class="col-12">
+                    <div>
+                        <form id="employeeOnboard" class="employee-cont">
+
+                            <div class="coapps">
+                                <img src="https://res.cloudinary.com/dvxc98fgx/image/upload/v1713502562/coapps_sg9386.png" class="image mb-3" /><br />
+                            </div>
+                            <p class="message-para">Please fill out the form below for our coapps. If any fields are missing, You will receive an <span class="span">error*</span> message.</p>
+                            <p class="paragraph">Please reach out to Noor Jakeer if you have any technical issues: jakeernoor742@gmail.com</p>
+
+                            <label for="sendername" class="label">Employee Name</label> <br />
+                            <input type="text" placeholder="Full Name" required id="sendername" class="mb-2 border" /> <br />
+                            <p id="para"></p>
+
+                            <label for="dateOfBirth" class="label">Employee Joining Date</label> <br />
+                            <input type="text" placeholder="DD-MM-YYYY" required id="dateOfBirth" class="mb-2 border" /> <br />
+                            <p id="paraDob"></p>
+
+                            <p class="gender">Gender</p>
+                            <input type="radio" id="genderMale" value="Male" name="gender" />
+                            <label for="genderMale">Male</label>
+                            <input type="radio" id="genderFemale" value="Female" name="gender" />
+                            <label for="genderFemale" class="mb-2">Female</label><br />
+
+                            <label for="jobRole" class="label">Job Role</label> <br />
+                            <input type="text" placeholder="Enter Job Role" required id="jobRole" class="mb-2 border" /> <br />
+
+
+                            <label for="email" class="label">E-Mail</label> <br />
+                            <input type="email" placeholder="Email Id" required id="email" class="mb-2 border" /> <br />
+                            <p id="paraMail"></p>
+
+                            <label for="address" class="label">Address</label> <br />
+                            <input type="text" placeholder="Native Place" required id="address" class="mb-2 border" /> <br />
+                            <p id="paraMail"></p>
+
+                            <label for="contact" class="label">Contact Details</label> <br />
+                            <input type="text" placeholder="Mobile No" required id="contact" class="mb-2 border" /> <br />
+                            <p id="paraMail"></p>
+
+                            <label for="message" class="label"> Message</label> <br />
+                            <textarea placeholder="Convey your message" required id="message" cols="40" rows="4" class="mb-2 border"></textarea><br />
+                            <p id="paraMessage"></p>
+
+                            <button class="button" onclick="sendMail()">Send</button>
+                        </form>
+                        <hr class="mt-5" style="border-top:1px solid black;">
+
+
+                        <div id="managerLogin" class="manager-cont">
+                            <h1 class="heading mb-4">Manager Login</h1>
+                            <label for="managerName" class="label-Manager">User Name</label> <br />
+                            <input type="text" placeholder="Full Name" required id="managerName" class="mb-4 border" /> <br />
+                            <p id="managerPara"></p>
+
+                            <label for="managerPassword" class="label-Manager">Password</label> <br />
+                            <input type="text" placeholder="password" required id="managerPassword" class="mb-4 border" /> <br />
+                            <p id="managerPasswordPara"></p>
+
+                            <div class="button-container">
+                                <button class="button mb-4" id="loginButton">Log in</button>
+                            </div>
+                            <p id="finalMessage" class="login-message mb-4"></p>
+                        </div>
+                        <hr cls=="mt-4" style="border-top:1px solid black;">
+
+
+                        <div id="aboutUs">
+                            <h1 class="heading text-center text-center">The Begining</h1>
+                            <p class="paragraph-one">The Coapps journey started in 2018. With a team of highly qualified individuals,
+                                Coapps assists businesses in finding the trusted digital service providers in software
+                                development, web & mobile app, digital branding, gaming & fintech app, NFT, and recruitment
+                                agencies across the world. More than 500 projects in CRM applications and fintech apps have been accomplished by
+                                us for diverse sectors including healthcare, automotive, IT, and banking.</p>
+                            <i class="fa fa-linkedin-square length" aria-hidden="true"></i>
+
+                            <a href="https://www.linkedin.com/company/coappsai/">Our Linkedin--></a>
+                            <div class="coapps-center">
+                                <img src="https://res.cloudinary.com/dvxc98fgx/image/upload/v1713507100/Screenshot_2024-04-19_113931_grrdbs.png" class="coapps-image mb-3" />
+                            </div>
+                            <h1 class="heading text-center">Specialists</h1>
+                            <p class="paragraph-one mb-2">Datascience, Machine Learning, Saas, AI, Mobile Application, Web Application, blockchain, marketplace, B2B, Digitalservices, Analytics, fintech,
+                                hiring agency, Bulk Hiring, software, and freshers. We have 201-500 employees and 157 associated members in our company.</p>
+                            <div class="coapps-center">
+                                <img src="https://res.cloudinary.com/dvxc98fgx/image/upload/v1713508678/pic2_simdrd.png" class="coapps-image mt-3" />
+                            </div>
+                            <hr style="border-top:1px solid black;">
+                        </div>
+
+
+                        <div class="manager-cont" id="privacyFiles">
+                            <h1 class="heading text-center">Privacy Files</h1>
+                            <p class="paragraph-one mb-2">**Enter the correct Password before the timer to get access of privacy files**</p>
+                            <p class="files text-center" id="timerPara"></p>
+
+                            <label for="FileAccessingName" class="label-Manager">User Name</label> <br />
+                            <input type="text" placeholder="Full Name" required id="FileAccessingName" class="mb-4 border" /> <br />
+
+
+                            <label for="FilePassword" class="label-Manager">Password</label> <br />
+                            <input type="text" placeholder="password" required id="FilePassword" class="mb-4 border" /> <br />
+                            <p id="FilePara"></p>
+
+                            <div class="button-container">
+                                <button class="button mb-4" id="loginButton">Log in</button>
+                            </div>
+                            <p id="fileFinalMessage" class="login-message mb-4"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <script src="script.js">
+                function sendMail() {
+                    (function() {
+                        emailjs.init("4eu_2yLSAIWYrGLh6"); // emaljs publickey
+                    })();
+                    var params = {
+                        sendername: document.querySelector("#sendername").value,
+                        email: document.querySelector("#email").value,
+                        address: document.querySelector("#address").value,
+                        contact: document.querySelector("#contact").value,
+                        dateOfBirth: document.querySelector("#dateOfBirth").value,
+                        jobrole: document.querySelector("#jobRole").value,
+                        message: document.querySelector("#message").value
+                    };
+                    var serviceID = "service_anzlxls"; //Email service Id 
+                    var templateID = "template_1rg90yf"; //Template Id 
+
+                    emailjs.send(serviceID, templateID, params)
+                        .then(res => {
+                            alert("Email sent successfully!");
+                        })
+                        .catch();
+                }
+            </scrip>
+        </div>
+
+    </div>
+
+    
+
+
+
+</body>
+</html>
